@@ -22,6 +22,11 @@
                   <i class="fa fa-linkedin"></i>
                 </span>
             </a>
+            <a class="nav-item" href="https://github.com/ankgne">
+                <span class="icon">
+                  <i class="fa fa-github"></i>
+                </span>
+            </a>
         </div>
         <p>Template by <a href="http://github.com/plasticneko">github.com/plasticneko</a></p>
 
