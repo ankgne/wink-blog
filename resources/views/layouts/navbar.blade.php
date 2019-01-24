@@ -1,4 +1,4 @@
-<div class="column is-narrow">
+<div class="column is-2-desktop is-2-tablet is-10-mobile">
     <div class="nav-header">
         <h3 class="title is-3">
             <a href="{{ route('blog.home') }}">{{ config('blog.title') }}</a>

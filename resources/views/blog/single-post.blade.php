@@ -46,6 +46,7 @@
 
 
     <!-- end of post -->
+    @include('layouts.comments')
 </div>
 <!--  end of post column -->
 
