@@ -1,13 +1,13 @@
 @extends('layouts.master')
 @section('content')
         <!-- posts column -->
-<div class="column is-8 is-centered">
+<div class="column is-8-desktop is-8-tablet is-10-mobile is-centered">
     @php($postsObject=json_decode($posts->toJson()))
     @foreach($posts as $post)
             <!-- start of post -->
     <div class="post-wrapper columns">
         <div class="column is-2">
-            <img src="{{$post->featured_image}}">
+            <a href="{{route('single.blog.show',[$post->slug])}}"><img src="{{$post->featured_image}}"></a>
 
         </div>
         <div class="column is-8">
