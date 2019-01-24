@@ -2,7 +2,7 @@
 @section('content')
 
         <!-- posts column -->
-<div class="column is-8 is-centered is-8-desktop is-8-tablet is-10-mobile">
+<div class="column is-centered is-8-desktop is-8-tablet is-10-mobile">
     <!-- start of post -->
 
     <div class="header-content">
