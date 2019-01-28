@@ -52,10 +52,7 @@
         </div>
     </div>
     <!-- end of post -->
-    @endforeach
-
-
-            <!-- pagination -->
+    @endforeach<!-- pagination -->
     <div class="pagination-non-style">
         @if( ($postsObject->prev_page_url))
             <a class="button menu-label" href="{{route('post.pagination',[$postsObject->current_page - 1])}}">Previous

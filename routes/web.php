@@ -20,5 +20,5 @@ Route::get('/tags/{tagSlug}', 'blogController@tagPageIndex')->name('blog.tag.ind
 Route::get('/posts/page/{pageNum}', 'blogController@index')->name('post.pagination');
 
 //Single post page
-Route::get('/post/{slug}', 'blogController@showSinglePost')->name('single.blog.show');
+Route::get('/post/{post}', 'blogController@showSinglePost')->name('single.blog.show');
 

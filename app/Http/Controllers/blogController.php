@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Wink\WinkPost;
+use App\BlogPost;
+
 
 class blogController extends Controller
 {
     public function index($pageNum = 1)
     {
-        $posts = WinkPost::with('tags')
+        $posts = BlogPost::with('tags')
             ->live()
             ->orderBy('publish_date', 'DESC')
             ->simplePaginate(config('blog.paginationCount'), ['*'], 'page', $pageNum);
@@ -19,9 +21,11 @@ class blogController extends Controller
         ]);
     }
 
-    public function showSinglePost($slug)
+    //we are getting the post details based on slug and it's configured in BlogPost
+    public function showSinglePost(BlogPost $post)
     {
-        $post = WinkPost::where('slug', 'like', $slug)->first();
+        //recording the view count of the post
+        views($post)->record();
 
         return view('blog.single-post', [
             'post' => $post,
@@ -30,7 +34,7 @@ class blogController extends Controller
 
     public function tagPageIndex($tagSlug, $pageNum = 1)
     {
-        $posts = WinkPost::whereHas('tags', function ($query) use ($tagSlug) {
+        $posts = BlogPost::whereHas('tags', function ($query) use ($tagSlug) {
             $query->where('slug', 'like', $tagSlug);
         })
             ->live()
