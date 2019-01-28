@@ -6,7 +6,6 @@
     <!-- start of post -->
 
     <div class="header-content">
-
         <h1 class="title is-4">
             {{$post->title}}
         </h1>
