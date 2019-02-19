@@ -20,4 +20,18 @@ class BlogPost extends WinkPost implements ViewableContract
     {
         return 'slug';
     }
+
+    /**
+     * Scope a query to get 3 featured posts based on the tag attached to it
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFeaturedPosts($query)
+    {
+        return $query->whereHas('tags' , function ($query)  {
+            $query->where('slug','like','featured')->limit(3);
+        });
+    }
+
 }
