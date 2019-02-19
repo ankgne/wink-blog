@@ -27,9 +27,9 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:description" content="{!! $postExcerpt !!}">
         <meta name="twitter:site" content="@ankgne">
-        <meta name="twitter:image" content="{{$post->featured_image}}">
+        <meta name="twitter:image" content="{{url($post->featured_image)}}">
         <meta name="og:site_name" content="{{ config('blog.title') }}">
-        <meta name="og:image" content="{{$post->featured_image}}">
+        <meta name="og:image" content="{{url($post->featured_image)}}">
     @endif
     <meta name="og:type" content="website">
         <meta name="og:locale" content="en_US">

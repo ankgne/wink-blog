@@ -14,10 +14,17 @@ class blogController extends Controller
         $posts = BlogPost::with('tags')
             ->live()
             ->orderBy('publish_date', 'DESC')
+            ->withCount('views')//get the count of views in views_count column
             ->simplePaginate(config('blog.paginationCount'), ['*'], 'page', $pageNum);
+
+        $popular_posts = filterPopularPosts($posts,5);
+
+        $featured_posts=BlogPost::FeaturedPosts()->get();
 
         return view('blog.index', [
             'posts' => $posts,
+            'popular_posts' => $popular_posts,
+            'featured_posts' => $featured_posts
         ]);
     }
 
