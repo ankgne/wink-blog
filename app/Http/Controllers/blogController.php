@@ -34,8 +34,19 @@ class blogController extends Controller
         //recording the view count of the post
         views($post)->record();
 
+        $post_slugs = $post->tags->pluck('slug')->toArray();//array converted slogs
+
+        $related_posts = BlogPost::whereHas('tags', function ($query) use ($post_slugs) {
+            $query->wherein('slug', $post_slugs);
+        })
+            ->live()
+            ->orderBy('publish_date', 'DESC')
+            ->withCount('views')//get the count of views in views_count column
+            ->get();
+
         return view('blog.single-post', [
             'post' => $post,
+            'related_posts' => $related_posts,
         ]);
     }
 
@@ -46,10 +57,14 @@ class blogController extends Controller
         })
             ->live()
             ->orderBy('publish_date', 'DESC')
+            ->withCount('views')//get the count of views in views_count column
             ->simplePaginate(config('blog.paginationCount'), ['*'], 'page', $pageNum);
+
+        $popular_posts = filterPopularPosts($posts,5);
 
         return view('blog.index', [
             'posts' => $posts,
+            'popular_posts' => $popular_posts,
         ]);
     }
 

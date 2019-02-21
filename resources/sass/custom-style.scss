@@ -3,16 +3,9 @@
 
 /* basic formatting changes */
 
-a {
-  color: grey;
-}
 
 .main-content {
   padding-top: 2.5rem;
-}
-
-.content p, .header-content, .footer, .nav-header, .input, .textarea, .nav-footer p {
-  font-family: Merriweather, Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;
 }
 
 .button:focus {
@@ -22,10 +15,6 @@ a {
 
 .menu-label:not(:first-child) {
   margin-top: 0;
-}
-
-.content p {
-  font-size: 1.1em;
 }
 
 .header-content small {
@@ -73,4 +62,44 @@ a {
 .footer{
   padding-bottom: 3rem;
   margin-top: 0rem;
+}
+
+
+.last-posts li {
+  list-style: none;
+  margin-bottom: 1em;
+}
+.last-posts li:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.last-posts .post-img {
+  width: 35%;
+  float: left;
+  margin-right: .5em;
+}
+
+.last-posts .post-body h5 {
+  font-size: 1em;
+}
+
+.featured-posts .post-img > img{
+  height: 8em;
+}
+
+@media (max-width: 768px) {
+  .last-posts .post-body{
+    padding-top: 0;
+  }
+  .last-posts .post-img{
+    width: 40%;
+  }
+  .last-posts .post-body h5{
+    font-size: .9em;
+  }
+  .featured-posts .post-img  > img{
+    height: auto;
+    width: 100%;
+  }
 }
