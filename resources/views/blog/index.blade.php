@@ -1,8 +1,9 @@
 @extends('layouts.master')
 @section('content')
         <!-- posts column -->
-<div class="column is-8-desktop is-8-tablet is-10-mobile is-centered">
+<div class="column is-7-desktop is-7-tablet is-10-mobile is-centered">
     @php($postsObject=json_decode($posts->toJson()))
+
     @foreach($posts as $post)
             <!-- start of post -->
     <div class="post-wrapper columns">
@@ -10,7 +11,7 @@
             <a href="{{route('single.blog.show',[$post->slug])}}"><img src="{{$post->featured_image}}"></a>
 
         </div>
-        <div class="column is-8">
+        <div class="column is-10">
 
             <div class="header-content">
 
@@ -66,5 +67,10 @@
     </div>
     <!-- pagination -->
 </div>
+
+<div class="column is-3-desktop is-3-tablet is-10-mobile is-centered">
+    @include('layouts.sidebar')
+</div>
+
 <!-- end of posts column -->
 @endsection

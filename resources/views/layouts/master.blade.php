@@ -54,9 +54,12 @@
 <div class="main-content">
     <div class="container ">
         <div class="columns is-multiline is-mobile is-centered">
-            @include('layouts.navbar')
+            <div class="column is-2-desktop is-2-tablet is-10-mobile">
+                @include('layouts.navbar')
+            </div>
             {{--@include('layouts.flash')--}}
-            @yield('content')
+
+                @yield('content')
             @include('layouts.footer')
         </div>
     </div>

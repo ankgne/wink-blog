@@ -1,9 +1,8 @@
 
-// Body
-$body-bg: #f8fafc;
+
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -18,3 +17,15 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$white: hsl(0, 0%, 100%);
+$grey-lighter: hsl(0, 0%, 86%);
+$grey: hsl(0, 0%, 48%) ;
+
+// Body
+$body-background-color: $white;
+
+//link
+$link: $grey;
+
+//font family
+$family-primary: $family-sans-serif;
