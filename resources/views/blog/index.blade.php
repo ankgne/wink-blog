@@ -4,11 +4,12 @@
 <div class="column is-7-desktop is-7-tablet is-10-mobile is-centered">
     @php($postsObject=json_decode($posts->toJson()))
 
+
     @foreach($posts as $post)
             <!-- start of post -->
     <div class="post-wrapper columns">
         <div class="column is-2">
-            <a href="{{route('single.blog.show',[$post->slug])}}"><img src="{{$post->featured_image}}"></a>
+            <a href="{{route('single.blog.show',['post' => $post->slug])}}"><img src="{{$post->featured_image}}"></a>
 
         </div>
         <div class="column is-10">
@@ -16,7 +17,7 @@
             <div class="header-content">
 
                 <h1 class="title is-4">
-                    <a href="{{route('single.blog.show',[$post->slug])}}">{{$post->title}}</a>
+                    <a href="{{route('single.blog.show',['post' => $post->slug])}}">{{$post->title}}</a>
 
                 </h1>
 
@@ -38,7 +39,7 @@
 
             <div class="content">
                 @if(!$post->excerpt)
-                    {!! str_limit($post->body,200) !!}
+                    {!! \Illuminate\Support\Str::limit($post->body,200) !!}
                 @else
                     {!! $post->excerpt !!}
                 @endif
@@ -46,7 +47,7 @@
 
             <div class="content-footer">
                 <hr/>
-                <p><a class="button menu-label" href="{{route('single.blog.show',['slug'=>$post->slug])}}">Continue
+                <p><a class="button menu-label" href="{{route('single.blog.show',['post'=>$post->slug])}}">Continue
                         Reading</a>
                 </p>
             </div>

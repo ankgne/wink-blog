@@ -7,10 +7,12 @@
 
     <title>Ankur Khurana's Blog</title>
     <?php
+    if (isset($post)){
         if(!$post->excerpt)
-            $postExcerpt = str_limit($post->body,200);
+            $postExcerpt = \Illuminate\Support\Str::limit($post->body,200);
         else
-            $postExcerpt = str_limit($post->excerpt );
+            $postExcerpt = \Illuminate\Support\Str::limit($post->excerpt );
+    }
     ?>
     @if(Request::routeis('blog.home'))
         <meta name="twitter:title" content="Ankur Khurana's Blog">
@@ -27,9 +29,9 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:description" content="{!! $postExcerpt !!}">
         <meta name="twitter:site" content="@ankgne">
-        <meta name="twitter:image" content="{{url($post->featured_image)}}">
+        <meta name="twitter:image" content="{{url($post->featured_image ?? 'not set') }} ">
         <meta name="og:site_name" content="{{ config('blog.title') }}">
-        <meta name="og:image" content="{{url($post->featured_image)}}">
+        <meta name="og:image" content="{{url($post->featured_image ?? 'not set') }}">
     @endif
     <meta name="og:type" content="website">
         <meta name="og:locale" content="en_US">

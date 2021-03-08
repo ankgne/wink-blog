@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Wink\WinkPost;
-use CyrildeWit\EloquentViewable\Viewable;
-use CyrildeWit\EloquentViewable\Contracts\Viewable as ViewableContract;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class BlogPost extends WinkPost implements ViewableContract
+class BlogPost extends WinkPost implements Viewable
 {
-    use Viewable;
+    use InteractsWithViews;
 
     /**
      * Get the route key for the model.
